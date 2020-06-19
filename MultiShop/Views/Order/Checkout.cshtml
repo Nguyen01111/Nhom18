@@ -1,0 +1,110 @@
+﻿@model Order
+
+@{
+    ViewBag.Title = "Thanh toán";
+}
+
+<h2>Thanh toán</h2>
+
+@using (Html.BeginForm("Purchase", "Order")) 
+{
+    <div class="form-horizontal">
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Tên khách hàng</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.CustomerId, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Ngày oder</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OrderDate, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Ngày </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RequireDate, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Địa chỉ nhận hàng </label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Receiver, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Email</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Address, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Tổng tiền</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Amount, new { @class = "form-control",@readonly="true" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Tài khoản ngân hàng</label>
+            <div class="col-md-10">
+                @Html.TextBox("BankAccount", null, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Ghi chú</label>
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Description, new { @class = "form-control", rows="5" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Hoàn tất" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<h2>Hàng đã chọn</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Mã sản phẩm</th>
+        <th>Tên sản phẩm</th>
+        <th>Giá </th>
+        <th>Khuyến mãi</th>
+        <th>Số lượng</th>
+        <th>Thành tiền</th>
+    </tr>
+    <tr>
+        <td>1000</td>
+        <td>tủ 1</td>
+        <td>$100</td>
+        <td>5%</td>
+        <td>2</td>
+        <td>$190</td>
+    </tr>
+    <tr>
+        <td>1000</td>
+        <td>Tủ 2</td>
+        <td>$100</td>
+        <td>5%</td>
+        <td>2</td>
+        <td>$190</td>
+    </tr>
+    <tr>
+        <td>1000</td>
+        <td>Tủ 3</td>
+        <td>$100</td>
+        <td>5%</td>
+        <td>2</td>
+        <td>$190</td>
+    </tr>
+</table>
